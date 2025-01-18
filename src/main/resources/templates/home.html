@@ -1,114 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>home page</title>
-	<div th:block th:include="fragments/headerinc :: header"></div>
-<!-- 
-    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"> -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>home app</title>
 	
-	<!--<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-	crossorigin="anonymous">-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
- <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" /> 
-    <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{/css/home.css}">
-	
 </head>
 <body>
-<div id="mySidenav" class="sidenav">
-  		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
- 	<div id="cssmenu">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-2" style="min-height: 700px; background-color: azure;">
+				<div>LG <b>SCHOOL</b></div><br>
+				<!-- List group -->
+				<div class="list-group" id="myList" role="tablist">
+					<a class="list-group-item list-group-item-action active" data-toggle="list" href="#home" role="tab" style="border: none;">Home</a>
+					<hr>
+  					<a class="list-group-item list-group-item-action" data-toggle="list" href="#attendance" role="tab" style="border: none;">attendance</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#classList" role="tab" style="border: none;">class List</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#timetable" role="tab" style="border: none;">Time Table</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#eventnews" role="tab" style="border: none;">Event/News</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#exams" role="tab" style="border: none;">Exams</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#calender" role="tab" style="border: none;">Calender</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#homework" role="tab" style="border: none;">HomeWork</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#examsresult" role="tab" style="border: none;">Exams Result</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#students" role="tab" style="border: none;">Students</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#employees" role="tab" style="border: none;">Employees</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#feespaid" role="tab" style="border: none;">Fees Paid</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#setting" role="tab" style="border: none;">Setting</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#configuration" role="tab" style="border: none;">Configuration</a>
+				</div>
+				
+			</div>
+			<div class="col-lg" style="min-height: 700px; border-left: 1px solid black;" >
+				<div>Name<br>..... 
+					<div style="float:right;">
+					img &nbsp;<b>EXIT</b>
+					</div>
+				</div>
+				<hr>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="home" role="tabpanel"><div th:block th:include="fragments/welcome :: page"></div></div>
+					<div class="tab-pane" id="attendance" role="tabpanel">attendance</div>
+					<div class="tab-pane" id="classList" role="tabpanel">classList</div>
+					<div class="tab-pane" id="timetable" role="tabpanel">time table</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 
-		<li>
-			<a href="#">Student</a>
-			<ul>
-			<li><a href="/students/signup">new student</a></li>
- 			<li><a href="#">LINK1</a></li>
- 			<li><a href="#">LINK1</a></li>
- 			<li><a href="#">LINK1</a></li>
- 			<li><a href="#">LINK1</a></li>
- 			<li><a href="#">Fees</a></li>
-			</ul>
 
-		</li>
- 	</div>
 
- 	<!-- <div class="dropdown">
- 		<button class="dropbtn">Parent</button>
- 		<div class="dropdown-content">
- 			<a href="#">new parent</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 		</div>
- 	</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
- 	<div class="dropdown">
- 		<button class="dropbtn">Teachers</button>
- 		<div class="dropdown-content">
- 			<a href="#">new Teachers</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 			<a href="#">LINK1</a>
- 		</div>
- 	</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$('#myList a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+	})
 
- 	<a href="#">new course</a>
- 	<a href="/classes/list">new class</a>
- 	<a href="#">Exams</a>
- 	<a href="/sesctions/add">Section</a> -->
-</div>
-
-<!-- Use any element to open the sidenav -->
-<section>
-	<p></p>
-</section>
-<br>
-<span onclick="openNav()">
-	<svg height="130" width="500">
-		<defs>
-		  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-			<stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
-			<stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-		  </linearGradient>
-		</defs>
-		<ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
-		<text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SMS237</text>
-		Sorry, your browser does not support inline SVG.
-	  </svg>
-
-</span>
-
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main">
-  ...
-</div>
-
-<script type="text/javascript">
-	/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    document.body.style.backgroundColor = "white";
-}
+	
 </script>
 </body>
 </html>
