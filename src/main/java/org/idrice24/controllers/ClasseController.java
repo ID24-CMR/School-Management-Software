@@ -29,7 +29,8 @@ public class ClasseController {
 
     @GetMapping("classe")
     public String viewPage(Model model){
-        model.addAttribute("classe", model);
+        Classe classe = new Classe();
+        model.addAttribute("classe", classe);
         return "add-classe";
     }
 
@@ -39,7 +40,7 @@ public class ClasseController {
         return "classe";
     }
 
-    @PostMapping("add/class")
+    @PostMapping("add/classe")
     public String newClasse(@Valid Classe classe, Model model, BindingResult result){
         if(result.hasErrors()){
             return "add-classe";
@@ -50,13 +51,10 @@ public class ClasseController {
     }
 
     @GetMapping("edit/classe/{id}")
-    public String editClasse(@PathVariable("id") long id, Model model,BindingResult result, Classe classe ){
-        if(result.hasErrors()){
-            classe.setId(id);
-            return "classe";
-        }
+    public String editClasse(@PathVariable("id") Long id, Model model, Classe classe ){
+        classe = classeService.getClasseById(id);
         model.addAttribute("classe", classe);
-        return "classe";
+        return "add-classe";
     }
 
     @GetMapping("update/classe/{id}")
@@ -78,6 +76,7 @@ public class ClasseController {
             return "classe";
         }
         classeService.deleteClasse(classe);
+        model.addAttribute("classes", classeService.getAllClasse());
         return "classe";
     }
 

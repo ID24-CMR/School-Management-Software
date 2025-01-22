@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
-    private UserServices userServices;
+   // private UserServices userServices;
     
         @Autowired
         public void setUserSer(UserServices userServices){
-            this.userServices = userServices;
+       //     this.userServices = userServices;
     }
 
     @GetMapping("/login")
