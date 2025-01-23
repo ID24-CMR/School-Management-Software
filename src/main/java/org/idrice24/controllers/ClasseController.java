@@ -13,10 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/classe/")
 public class ClasseController {
     private final ClasseService classeService;
     private StudentService studentService;
@@ -27,30 +25,30 @@ public class ClasseController {
         this.studentService = studentService;
     }
 
-    @GetMapping("classe")
+    @GetMapping("/classe")
     public String viewPage(Model model){
         Classe classe = new Classe();
         model.addAttribute("classe", classe);
         return "add-classe";
     }
 
-    @GetMapping("classe/list")
+    @GetMapping("/classe/list")
     public String showClasse(@Valid Classe classe, Model model){
         model.addAttribute("classes", classeService.getAllClasse());
         return "classe";
     }
 
-    @PostMapping("add/classe")
+    @PostMapping("/add/classe")
     public String newClasse(@Valid Classe classe, Model model, BindingResult result){
         if(result.hasErrors()){
             return "add-classe";
         }
         classeService.saveClasse(classe);
         model.addAttribute("classes", classeService.getAllClasse() );
-        return "classe";
+        return "redirect:/classe/list";
     }
 
-    @GetMapping("edit/classe/{id}")
+    @GetMapping("/edit/classe/{id}")
     public String editClasse(@PathVariable("id") Long id, Model model, Classe classe ){
         classe = classeService.getClasseById(id);
         model.addAttribute("classe", classe);
@@ -68,7 +66,7 @@ public class ClasseController {
         return "classe";
     }
 
-    @GetMapping("delete/classe/{id}")
+    @GetMapping("/delete/classe/{id}")
     public String deleteClasse(@PathVariable("id") long id, Model model, Classe classe, BindingResult result){
         classe = classeService.getClasseById(id);
         if(result.hasErrors()){
@@ -80,7 +78,7 @@ public class ClasseController {
         return "classe";
     }
 
-    @GetMapping("view/classe/{id}")
+    @GetMapping("/view/classe/{id}")
     public String viewClasse(@PathVariable("id") long id, Model model){
         Classe classe = classeService.getClasseById(id);
         String classeName = classe.getClasseName();
@@ -89,7 +87,7 @@ public class ClasseController {
         return "classeview";
     }
 
-    @GetMapping("view/subject/classe/{id}")
+    @GetMapping("/view/subject/classe/{id}")
     public String subjectClasse(@PathVariable("id") long id, Model model){
         Classe classes = classeService.getClasseById(id);
     //    Classe c = new Classe();

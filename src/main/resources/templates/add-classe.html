@@ -19,12 +19,12 @@
 </head>
 
 <body>
-    <div class="container my-5" th:fragment="page">
+    <div class="container my-2" th:fragment="page">
         <h3>Add Classe</h3>
         <div class="card">
             <div class="card-body">
                 <div class="col-md-10">
-                    <form action="#" th:action="@{/classe/add/classe}" th:object="${classe}" method="post">
+                    <form action="#" th:action="@{/add/classe}" th:object="${classe}" method="post">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="classeName" class="col-form-label">Claas Name</label>
@@ -42,10 +42,11 @@
                                     </select>
                             </div>
                             <div class="col-md-6">
-                                <input type="submit" class="btn btn-primary" value="Add Class">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Add Class">
                             </div>
-
-                            <div class="form-group col-md-8">Cancel</div>
+                            <div class="col-md-6">
+                                <input type="reset" class="btn btn-secondary btn-lg" value="Cancel">
+                            </div>
                         </div>
                     </form>
                 </div>

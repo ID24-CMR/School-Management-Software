@@ -20,7 +20,15 @@
     <div th:block th:include="fragments/headerinc :: header"></div>
 </head>
 <body>
-        <div style="width: 90%; height: 300px" th:block th:include="add-classe :: page"> </div>
+    <div class="container my-2">
+        <div class="card">
+            <div class="card-body">
+                <i class="fas fa-house"></i>&nbsp;
+                <i class="fas fa-calender"></i>&nbsp;
+                <div style="width: 90%; height: 200px" th:block th:include="add-classe :: page"> </div>
+            </div>
+        </div>
+    </div>
 </body>
         <hr>
 <body>
@@ -29,8 +37,7 @@
                 <div class="card-body">
                     <div th:switch="${classes}" class="container my-5">
                         <p class="my-5">
-                            <a href="/classe/classe/list" class="btn btn-primary"><i
-                                class="fas fa-user-plus ml-2"> Add class</i></a>
+                            <h2><i class="fas fa-landmark"></i>&nbsp;School Class List</h2>
                         </p>
                         <div class="col-md-10">
                             <h2 th:case="null">No Class yet!</h2>
@@ -52,7 +59,7 @@
                                             <td th:text="${classe.classeName}"></td>
                                             <td th:text="${classe.sect}"></td>
                                             <td><a th:href="@{/classe/view/classe/{id}(id=${classe.id})}" 
-                                                class="btn btn-secondary"><i class="fas fa-user-view ml-2"></i></a></td>
+                                                class="btn btn-secondary"><i class="fas fa-eye ml-2"></i></a></td>
                                             <td><a th:href="@{/classe/edit/classe/{id}(id=${classe.id})}"
                                                 class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
                                             <td><a
