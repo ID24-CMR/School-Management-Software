@@ -97,6 +97,18 @@ public class ClasseController {
         return "classeview";
     }
 
+    @GetMapping("/class/list")
+    public String getClassList(Model model){
 
+        return "classList";
+    }
+
+    @GetMapping("/class/list/{value}")
+    public String getClassListView(Model model){
+        
+        return "classList";
+    }
+
+    
 
 }

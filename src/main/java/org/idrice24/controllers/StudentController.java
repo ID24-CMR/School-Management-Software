@@ -46,7 +46,7 @@ public class StudentController {
 
 	@GetMapping("list")
 	public String showUpdateForm(Model model) {
-		model.addAttribute("students", studentService.listAllStudents());
+		model.addAttribute("students", studentRepository.findAll());
 		return "student";
 	}
 
