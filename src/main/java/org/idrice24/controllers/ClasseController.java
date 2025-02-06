@@ -1,8 +1,11 @@
 package org.idrice24.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.idrice24.entities.Classe;
+import org.idrice24.entities.Student;
 //import org.idrice24.entities.Student;
 import org.idrice24.services.ClasseService;
 import org.idrice24.services.StudentService;
@@ -13,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ClasseController {
@@ -98,15 +102,29 @@ public class ClasseController {
     }
 
     @GetMapping("/class/list")
-    public String getClassList(Model model){
+    public String getClassList( Model model){
+        model.addAttribute("classes", classeService.getAllClasse());
+        
 
         return "classList";
     }
 
-    @GetMapping("/class/list/{value}")
-    public String getClassListView(Model model){
+    @GetMapping("/classe/list/{value}")
+    public String getClassListView(@RequestParam(name="value") String value, Model model){
         
-        return "classList";
+        
+        String classe = value ;
+        System.out.println("this is class name "+ classe);
+        List<Student> st = studentService.findByClasse(classe);
+        /*int num = 0;*/
+        for(int i = 0; i <= st.size(); ++i){
+           
+            model.addAttribute("num", i);
+        }
+        
+        model.addAttribute("value", value);
+        model.addAttribute("classeList", st);
+        return "classListprint";
     }
 
     

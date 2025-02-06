@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print class List</title>
+</head>
+<body>
+    <table>
+        <h1>This is the class list for class: &nbsp;<b th:text="${value}"></b> </h1>
+        <br>
+        <h2>Teacher Name:...........................</h2>
+        <thead>
+            <th>N°</th>
+            <th>Student Name</th>
+            <th></th>
+        </thead>
+        <tbody>
+            
+            <tr th:each="c : ${classeList}">
+                <td th:text="${num}"></td>
+                <td th:text="${c.fullname}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

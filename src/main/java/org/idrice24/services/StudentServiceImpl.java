@@ -1,5 +1,7 @@
 package org.idrice24.services;
 
+import java.util.List;
+
 import org.idrice24.entities.Student;
 import org.idrice24.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,11 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public long getLastId() {
         return studentRepository.count();
+    }
+
+    @Override
+    public List<Student> findByClasse(String classe) {
+        return studentRepository.findByClasse(classe);
     }
     
 }
