@@ -8,6 +8,7 @@ import org.idrice24.entities.Classe;
 import org.idrice24.entities.Student;
 //import org.idrice24.entities.Student;
 import org.idrice24.services.ClasseService;
+import org.idrice24.services.OdfService;
 import org.idrice24.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ClasseController {
@@ -109,6 +111,16 @@ public class ClasseController {
         return "classList";
     }
 
+    //Export data to pdf file
+    @GetMapping("/class/pdf")
+    public ModelAndView exportToPdf(){
+        ModelAndView mav = new ModelAndView();
+       // mav.setView(new OdfService());
+        //read data from DB
+        List<Classe> list = (List<Classe>) classeService.getAllClasse();
+        mav.addObject(list);
+        return mav;
+    }
     @GetMapping("/classe/list/{value}")
     public String getClassListView(@RequestParam(name="value") String value, Model model){
         
@@ -117,8 +129,10 @@ public class ClasseController {
         System.out.println("this is class name "+ classe);
         List<Student> st = studentService.findByClasse(classe);
         /*int num = 0;*/
-        for(int i = 0; i <= st.size(); ++i){
-           
+        int i = 1;
+        while((int) st.size() > i){
+        
+            i = i + 1;
             model.addAttribute("num", i);
         }
         
