@@ -1,21 +1,5 @@
 package org.idrice24.services;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.html.parser.Element;
-
-import org.idrice24.entities.Classe;
-import org.springframework.web.servlet.view.document.AbstractPdfView;
-
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.*;
-
 public class OdfService /*extends AbstractPdfView*/ {
 
 //     @Override

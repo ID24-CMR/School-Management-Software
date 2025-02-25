@@ -21,7 +21,10 @@ public class Teachers{
     private String teaemail;
 
     @Column(name="teacourse")
-    private String teacourse;
+    private String[] teacourse;
+
+    @Column(name = "picture")
+    private byte picture;
 
     @Column(name="teaaddress")
     private String teaaddress;
@@ -88,12 +91,12 @@ public class Teachers{
         return teaemail;
     }
 
-    public void setteacourse(String teacourse){
+    public void setteacourse(String[] teacourse){
         this.teacourse = teacourse;
     }
 
 
-    public String getTeacourse(){
+    public String[] getTeacourse(){
         return teacourse;
     }
 
@@ -152,5 +155,26 @@ public class Teachers{
     public String getClasse(){
         return classe;
     }
+
+    public void setTeacourse(String[] teacourse) {
+        this.teacourse = teacourse;
+    }
+
+    public byte getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte picture) {
+        this.picture = picture;
+    }
+
+    public void setTeaphone(String teaphone) {
+        this.teaphone = teaphone;
+    }
+
+    public void setDepmt(String depmt) {
+        this.depmt = depmt;
+    }
+    
 
 }

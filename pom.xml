@@ -17,7 +17,6 @@
             <url>http://127.0.0.1//webpr/mns237</url>
         </scm>
 
-
          <!--https://spring.io/projects/spring-boot-->
     	<parent>
         	<groupId>org.springframework.boot</groupId>
@@ -91,8 +90,8 @@
 			<!-- https://mvnrepository.com/artifact/com.lowagie/itext -->
 			<dependency>
 				<groupId>com.itextpdf</groupId>
-				<artifactId>itext7-core</artifactId>
-				<version>9.1.0</version>
+				<artifactId>itextpdf</artifactId>
+				<version>5.5.13.4</version>
 				<type>pom</type>
 			</dependency>
              
